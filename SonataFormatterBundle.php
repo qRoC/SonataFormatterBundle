@@ -14,6 +14,7 @@ namespace Sonata\FormatterBundle;
 use Sonata\CoreBundle\Form\FormHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Sonata\FormatterBundle\DependencyInjection\Compiler\CKEditorCompilerPass;
 
 class SonataFormatterBundle extends Bundle
 {
@@ -23,6 +24,8 @@ class SonataFormatterBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         $this->registerFormMapping();
+        $container
+             ->addCompilerPass(new CKEditorCompilerPass());
     }
 
     /**
